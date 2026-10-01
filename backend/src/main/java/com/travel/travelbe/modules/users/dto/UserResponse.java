@@ -1,40 +1,42 @@
 package com.travel.travelbe.modules.users.dto;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-
-public class CreateUserRequest {
-    @Schema(description = "Tên đăng nhập", example = "string")
+public class UserResponse {
+    private String id;
     private String username;
-    @Schema(description = "Họ và tên", example = "string")
     private String fullName;
-    @Schema(type = "string", format = "date", example = "2026-10-01")
     private LocalDate birthday;
-    @Schema(description = "Địa chỉ", example = "string")
     private String address;
-    @Schema(description = "Email", example = "string")
     private String email;
-    @Schema(description = "Số điện thoại", example = "string")
     private String phoneNumber;
-    @Schema(description = "Mật khẩu", example = "string")
-    private String password;
-    @Schema(description = "Đường dẫn ảnh đại diện", example = "string")
+    private String role;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     private String avatar;
+    private Boolean isActive;
 
-    public CreateUserRequest(){}
+    public UserResponse(){
+    }
 
-    public CreateUserRequest(String username, String fullName, LocalDate birthday, String address, String email, String phoneNumber, String password, String avatar) {
+    public UserResponse(String id, String username, String fullName, LocalDate birthday, String address, String email, String phoneNumber, String role, LocalDateTime createdAt, LocalDateTime updatedAt, String avatar, Boolean isActive) {
+        this.id = id;
         this.username = username;
         this.fullName = fullName;
         this.birthday = birthday;
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.password = password;
+        this.role = role;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
         this.avatar = avatar;
+        this.isActive = isActive;
+    }
 
+    public String getId() {
+        return id;
     }
 
     public String getUsername() {
@@ -61,12 +63,28 @@ public class CreateUserRequest {
         return phoneNumber;
     }
 
-    public String getPassword() {
-        return password;
+    public String getRole() {
+        return role;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 
     public String getAvatar() {
         return avatar;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setUsername(String username) {
@@ -93,12 +111,23 @@ public class CreateUserRequest {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
 }
